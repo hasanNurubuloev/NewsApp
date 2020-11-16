@@ -12,7 +12,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.geektech.newsapp.R
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+class MainActivity : AppCompatActivity()
+    , NavigationView.OnNavigationItemSelectedListener
+{
 
     private lateinit var drawerLayout: DrawerLayout;
 
@@ -35,7 +37,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         if (savedInstanceState == null) {
-            supportFragmentManager.findFragmentById(R.id.fragment_main)
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fragment_container,
+                MainFragment()
+            ).commit()
             navigationView.setCheckedItem(R.id.nav_shop)
 
         }
@@ -52,28 +57,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menuInflater.inflate(R.menu.dots, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//
-//        return super.onCreateOptionsMenu(menu)
-//    }
-//
-//    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-////        when(p0.itemId){
-////            R.id.nav_shop ->
-////            supportFragmentManager.beginTransaction()
-////                .replace(R.id.fragment_container, MainFragment()).commit()
-////        }
-//        drawerLayout.closeDrawer(GravityCompat.START)
-//        return true
-//    }
-//    override fun onBackPressed() {
-//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//            drawerLayout.closeDrawer(GravityCompat.START)
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
-
-
 }

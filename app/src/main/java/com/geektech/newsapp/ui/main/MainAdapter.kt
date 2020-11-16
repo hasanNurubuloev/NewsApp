@@ -44,7 +44,7 @@ class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         Log.d("ololo", "bind: " + articles.description)
         itemView.mh_text_title.text=articles.title
         itemView.mh_text_desc.text= articles.description
-        itemView.setOnClickListener(View.OnClickListener { inter.onClickHolder(articles, adapterPosition) })
+        itemView.setOnClickListener { inter.onClickHolder(articles, adapterPosition) }
     }
 }
 interface OnClickHolder{

@@ -11,7 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geektech.newsapp.R
+import com.geektech.newsapp.ui.detail_news.DetailNewsActivity
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_main.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +35,6 @@ class MainFragment : Fragment(),
     private var viewModel: MainViewModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
 
@@ -44,22 +44,23 @@ class MainFragment : Fragment(),
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_main, container, false)
-
+        init(view)
+        request()
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        init()
-        request()
+
     }
 
 
-    private fun init() {
-        recycler_view.layoutManager =
+    private fun init(view: View) {
+        view.recycler_view.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        recycler_view.adapter = adapter
+        view.recycler_view.adapter = adapter
+
 
         Log.d("ololo", "init: $adapter")
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
@@ -74,8 +75,7 @@ class MainFragment : Fragment(),
     }
 
     override fun onClickHolder(articles: Articles, position: Int) {
-        TODO("Not yet implemented")
+        DetailNewsActivity.instance(activity,articles)
     }
-
 
 }
