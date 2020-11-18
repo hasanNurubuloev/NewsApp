@@ -1,3 +1,6 @@
+package com.geektech.newsapp.model
+
+import Source
 import com.google.gson.annotations.SerializedName
 
 data class Articles (

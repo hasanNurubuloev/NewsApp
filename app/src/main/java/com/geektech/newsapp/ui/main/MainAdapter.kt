@@ -1,7 +1,6 @@
 package com.geektech.newsapp.ui.main
 
-import Articles
-import NewsBase
+import com.geektech.newsapp.model.Articles
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +37,7 @@ class MainAdapter(
 class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
 
-    fun bind (articles: Articles,inter: OnClickHolder){
+    fun bind (articles: Articles, inter: OnClickHolder){
 
     Glide.with(itemView.context).load(articles.urlToImage).into(itemView.mh_image)
         Log.d("ololo", "bind: " + articles.description)

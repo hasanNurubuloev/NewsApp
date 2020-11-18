@@ -1,6 +1,6 @@
 package com.geektech.newsapp.ui.main
 
-import Articles
+import com.geektech.newsapp.model.Articles
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geektech.newsapp.R
 import com.geektech.newsapp.ui.detail_news.DetailNewsActivity
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 // TODO: Rename parameter arguments, choose names that match

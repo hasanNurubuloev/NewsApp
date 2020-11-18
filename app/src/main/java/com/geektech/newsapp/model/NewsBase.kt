@@ -1,3 +1,4 @@
+import com.geektech.newsapp.model.Articles
 import com.google.gson.annotations.SerializedName
 
 data class NewsBase (
