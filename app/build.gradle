@@ -1,10 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
+    dataBinding{enabled = true}
 
     defaultConfig {
         applicationId "com.geektech.newsapp"
@@ -48,6 +50,13 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     // Paging
-    implementation "android.arch.paging:runtime:1.0.1"
+    implementation "androidx.paging:paging-runtime:3.0.0-alpha02"
+    implementation "androidx.paging:paging-runtime-ktx:3.0.0-alpha02"
+    testImplementation "androidx.paging:paging-common:3.0.0-alpha02"
+
+    //Room
+    implementation "androidx.room:room-runtime:2.3.0-alpha01"
+   
+    kapt "androidx.room:room-compiler:2.3.0-alpha01"
 
 }
